@@ -1,0 +1,17 @@
+img{
+    height : 45px;
+    width : 300px;
+}
+
+input{
+    padding : 10px;
+    margin : 10px;
+}
+
+button{
+    margin-right : 15px;
+}
+
+a#createrLink{
+    text-decoration: none;
+}
