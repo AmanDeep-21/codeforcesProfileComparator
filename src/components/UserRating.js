@@ -4,9 +4,6 @@ class UserRating extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            key : "1d48e2086048e2631fbf0e7136ee9aa195fdb9bb",
-            secret : "ff962682aba07fc22511003aedfbcd6eb9a41c4d",
-            currTime : Date.now() / 1000,
             user : this.props.user,
             contests : undefined,
             minRating : 100000,
@@ -26,9 +23,8 @@ class UserRating extends React.Component{
     }
 
     getData = async() => {
-        const response = await fetch('https://codeforces.com/api/user.rating?handle=' + this.state.user + '&apikey=' + this.state.key + '&time=' + this.state.currTime + '&apiSig=' +
-        'sha512Hex(210799/user.rating?apiKey=' + this.state.key + '&handle=' + this.state.user + '&time=' + this.state.currTime + '#' + this.state.secret);
-
+        const response = await fetch('https://codeforces.com/api/user.rating?handle=' + this.state.user);
+        
         const result = await response.json();
         return result;
     }
