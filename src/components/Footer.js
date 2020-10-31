@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 class Footer extends React.Component{
     constructor(props){
@@ -21,7 +21,7 @@ class Footer extends React.Component{
                 <center>
                     <p>Copyright &copy; 2020</p>
                     <p>Created by Aman Deep</p>
-                    <p>StopStalk Profile : <a href = "https://www.stopstalk.com/user/profile/aman_deep21" target = "_blank" id = "stopstalkLink">aman_deep21</a></p>
+                    <p>StopStalk Profile : <a href = "https://www.stopstalk.com/user/profile/aman_deep21" target = "_blank" rel="noopener noreferrer" id = "stopstalkLink">aman_deep21</a></p>
                 </center>
             </div>
         )
