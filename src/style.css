@@ -4,9 +4,15 @@ img{
 }
 .wrapper{
     min-height: 100vh;
-    background-color: blue;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+.wrapper>div{
+    height: 200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

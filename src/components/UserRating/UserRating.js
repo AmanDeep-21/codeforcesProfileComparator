@@ -45,6 +45,7 @@ class UserRating extends React.Component {
         });
       })
       .catch((err) => {
+        console.log(err);
         this.setState({
           error: true,
         });
@@ -91,7 +92,7 @@ class UserRating extends React.Component {
   }
 
   render() {
-    let element = null;
+    let element;
     if (!this.state.error) {
       element = (
         <div className={"user-rating"}>
@@ -106,13 +107,15 @@ class UserRating extends React.Component {
       );
     } else {
       element = (
-        <h1>
-          Sorry, looks like some error happened with data of {this.state.user}
-        </h1>
+        <div>
+          <h1>
+            Sorry, looks like some error happened with data of {this.state.user}
+          </h1>
+        </div>
       );
     }
 
-    return <div>{element}</div>;
+    return element;
   }
 }
 
