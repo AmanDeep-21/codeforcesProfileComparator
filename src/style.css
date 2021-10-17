@@ -2,16 +2,17 @@ img{
     height : 45px;
     width : 300px;
 }
-
-input{
-    padding : 10px;
-    margin : 10px;
+.wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
-
-button{
-    margin-right : 15px;
-}
-
-a#stopstalkLink{
-    text-decoration: none;
+.wrapper>div{
+    height: 200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
