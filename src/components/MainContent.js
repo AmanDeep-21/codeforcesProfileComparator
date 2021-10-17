@@ -13,38 +13,32 @@ class MainContent extends React.Component{
         }
     }
 
-    setUser1 = (e) => {
-        this.setState({
-            user1 : e.target.value
-        })
-    }
+    checkInput = (event) => {
+        event.preventDefault();
+        console.log("Received call to checkInput");
 
-    setUser2 = (e) => {
-        this.setState({
-            user2 : e.target.value
-        })
-    }
+        let userId1FromForm = event.target.userId1.value;
+        let userId2FromForm = event.target.userId2.value;
 
-    checkInput = () => {
-        if(this.state.user1 === "" && this.state.user2 === ""){
+        if(userId1FromForm === "" && userId2FromForm === ""){
             this.setState({
                 flag : false
             })
             alert('Please enter both user handles');
         }
-        else if(this.state.user1 === ""){
+        else if(userId1FromForm === ""){
             this.setState({
                 flag : false
             })
             alert('Please enter first user handle');
         }
-        else if(this.state.user2 === ""){
+        else if(userId2FromForm === ""){
             this.setState({
                 flag : false
             })
             alert('Please enter second user handle');
         }
-        else if(this.state.user1 === this.state.user2){
+        else if(userId1FromForm === userId2FromForm){
             this.setState({
                 flag : false
             })
@@ -52,18 +46,27 @@ class MainContent extends React.Component{
         }
         else{
             this.setState({
-                flag : true
+                flag : true,
+                user1 : userId1FromForm,
+                user2 : userId2FromForm,
             })
             return true;
         }
     }
 
+    resetFormValues = () => {
+        this.refs.userId1.value=""
+        this.refs.userId2.value=""
+    }
+
     resetUsersData = () => {
+        console.log("Resetting user data")
         this.setState({
             flag : false,
             user1 : "",
             user2 : "",
         })
+        this.resetFormValues()
     }
 
     render(){
@@ -84,11 +87,13 @@ class MainContent extends React.Component{
             <div>
                 <center>
                 <h1>MainContent</h1>
-                <input type = "text" onChange = {this.setUser1} value = {this.state.user1} placeholder = "Please enter user handle"  required />
-                <input type = "text" onChange = {this.setUser2} value = {this.state.user2} placeholder = "Please enter user handle"  required />
-                <br /> <br />
-                <button onClick = {this.checkInput}> Compare </button>
-                <button onClick = {this.resetUsersData}> Reset </button>
+                <form onSubmit={this.checkInput}>
+                    <input type = "text" name="userId1" ref="userId1" placeholder = "Please enter user handle"  required />
+                    <input type = "text" name="userId2" ref="userId2" placeholder = "Please enter user handle"  required />
+                    <br /> <br />
+                    <button type="button" onClick = {this.resetUsersData}> Reset </button>
+                    <button type="submit"> Compare </button>
+                </form>
                 {element}
                 </center>
             </div>
