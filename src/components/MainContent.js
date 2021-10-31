@@ -21,25 +21,7 @@ class MainContent extends React.Component{
         let userId1FromForm = event.target.userId1.value;
         let userId2FromForm = event.target.userId2.value;
 
-        if(userId1FromForm === "" && userId2FromForm === ""){
-            this.setState({
-                flag : false
-            })
-            alert('Please enter both user handles');
-        }
-        else if(userId1FromForm === ""){
-            this.setState({
-                flag : false
-            })
-            alert('Please enter first user handle');
-        }
-        else if(userId2FromForm === ""){
-            this.setState({
-                flag : false
-            })
-            alert('Please enter second user handle');
-        }
-        else if(userId1FromForm === userId2FromForm){
+        if(userId1FromForm === userId2FromForm){
             this.setState({
                 flag : false
             })
