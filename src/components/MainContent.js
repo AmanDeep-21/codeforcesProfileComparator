@@ -1,6 +1,7 @@
 import React from "react";
 import UserRating from "./UserRating";
 import Footer from "./Footer";
+import './MainContent.css';
 
 class MainContent extends React.Component{
     constructor(props){
@@ -74,8 +75,10 @@ class MainContent extends React.Component{
         if(this.state.flag){
             element = 
             <div>
-                <UserRating user = {this.state.user1} />
-                <UserRating user = {this.state.user2} />
+                <div className="userResultRow">
+                    <UserRating user = {this.state.user1} />
+                    <UserRating user = {this.state.user2} />
+                </div>
                 <Footer position = 'relative'/>
             </div>
         }
